@@ -1,0 +1,650 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Reset und Basis Styles (gleich wie in startseite.css) */
+:root {
+    --primary-color: #e63946;
+    --secondary-color: #1d3557;
+    --accent-color: #f1faee;
+    --text-color: #333333;
+    --light-text: #f1faee;
+    --background-color: #ffffff;
+    --dark-background: #1d3557;
+    --light-background: #f1faee;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--background-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+section {
+    padding: 4rem 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+    border: none;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border: 2px solid var(--primary-color);
+}
+
+.btn.secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--hover-shadow);
+}
+
+.btn.primary:hover {
+    background-color: #d62c3b;
+    border-color: #d62c3b;
+}
+
+.btn.secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+/* Header & Navigation (gleich wie in startseite.css) */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+}
+
+.logo h1 {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    font-size: 1.8rem;
+}
+
+.logo p {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+    color: var(--secondary-color);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-menu a:hover::after, .nav-menu a.active::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+/* Footer Styles (gleich wie in startseite.css) */
+footer {
+    background-color: var(--dark-background);
+    color: var(--light-text);
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo h2::after {
+    display: none;
+}
+
+.footer-links h3, .footer-contact h3, .footer-social h3 {
+    font-size: 1.2rem;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links h3::after, .footer-contact h3::after, .footer-social h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-contact i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.legal-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.legal-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Reservierungs-spezifische Styles */
+.reservation-hero {
+    height: 40vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('../assets/reservation-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light-text);
+    margin-top: 80px;
+}
+
+.reservation-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.reservation-form {
+    background-color: var(--light-background);
+    padding: 4rem 0;
+}
+
+.reservation-form .container {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+}
+
+.form-container {
+    background-color: var(--background-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.form-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-header h2 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-header h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.2);
+}
+
+.terms-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.terms-group input {
+    width: auto;
+    margin-top: 0.3rem;
+}
+
+.terms-group label {
+    font-size: 0.9rem;
+}
+
+.terms-group a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.submission-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.required-text {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.reservation-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-box {
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.info-box h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.info-box h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.info-box li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.info-box li:last-child {
+    border-bottom: none;
+}
+
+.contact-box p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.contact-box i {
+    margin-right: 10px;
+    color: var(--primary-color);
+    width: 20px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    margin: 10% auto;
+    width: 90%;
+    max-width: 600px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    animation: modalSlideDown 0.4s ease;
+}
+
+@keyframes modalSlideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #555;
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+}
+
+.modal-header {
+    background-color: var(--light-background);
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.modal-header i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.modal-header h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+#reservationDetails {
+    background-color: var(--light-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+}
+
+#reservationDetails p {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+#reservationDetails p:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.modal-footer {
+    padding: 1.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .reservation-form .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 12px;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--background-color);
+        width: 100%;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        padding: 2rem 0;
+        gap: 1.5rem;
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .reservation-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .modal-content {
+        margin: 20% auto;
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 3rem 0;
+    }
+    
+    .container {
+        width: 95%;
+    }
+}

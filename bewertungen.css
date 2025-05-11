@@ -1,0 +1,150 @@
+/* Bewertungen Styles */
+
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/restaurant-innen.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 50px;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.bewertungen-section {
+    padding: 50px 0;
+}
+
+.bewertungen-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 2.2rem;
+}
+
+.bewertungen-section h3 {
+    color: #333;
+    font-size: 1.8rem;
+    margin: 40px 0 20px;
+}
+
+.bewertungen-section p {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Trustmary Widget Container */
+.trustmary-widget {
+    margin: 50px 0;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Google Bewertungen */
+.bewertungen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.bewertung-karte {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bewertung-karte:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.bewertung-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.sterne {
+    color: #FFD700;
+    font-size: 1.2rem;
+}
+
+.autor {
+    font-weight: 600;
+    color: #333;
+}
+
+.bewertung-text p {
+    text-align: left;
+    margin: 0;
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+}
+
+.google-link, .bewertung-abgeben {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #d35400;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #e67e22;
+}
+
+.bewertung-abgeben {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 50px;
+}
+
+.bewertung-abgeben h3 {
+    margin-top: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 70px 20px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+    
+    .bewertungen-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bewertung-karte {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,681 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Reset und Basis Styles */
+:root {
+    --primary-color: #e63946;
+    --secondary-color: #1d3557;
+    --accent-color: #f1faee;
+    --text-color: #333333;
+    --light-text: #f1faee;
+    --background-color: #ffffff;
+    --dark-background: #1d3557;
+    --light-background: #f1faee;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--background-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+section {
+    padding: 4rem 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border: 2px solid var(--primary-color);
+}
+
+.btn.secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--hover-shadow);
+}
+
+.btn.primary:hover {
+    background-color: #d62c3b;
+    border-color: #d62c3b;
+}
+
+.btn.secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+/* Cookie Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-background);
+    color: var(--light-text);
+    padding: 1rem;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.cookie-buttons button, .cookie-buttons a {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.cookie-buttons button {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border: none;
+}
+
+.cookie-buttons a {
+    color: var(--light-text);
+    text-decoration: underline;
+}
+
+/* Header & Navigation */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+}
+
+.logo h1 {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    font-size: 1.8rem;
+}
+
+.logo p {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+    color: var(--secondary-color);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-menu a:hover::after, .nav-menu a.active::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+/* Menü Hero Section */
+.menu-hero {
+    height: 50vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/menu-background.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light-text);
+    margin-top: 70px;
+}
+
+.menu-hero-content {
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.menu-hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.menu-hero h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+}
+
+.menu-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Menü Content Section */
+.menu-content {
+    padding: 4rem 0;
+    background-color: var(--background-color);
+}
+
+.menu-introduction {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.menu-introduction h2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu-introduction h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.menu-introduction p {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+/* Menü Kategorien */
+.menu-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.category-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--light-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.category-item:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--hover-shadow);
+}
+
+.category-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.category-item h3 {
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+/* PDF-Menü-Bereich */
+.pdf-menu {
+    background-color: var(--light-background);
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    margin: 4rem 0;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.pdf-menu h2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pdf-menu h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pdf-menu p {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.menu-download-options {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.download-btn, .view-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: 250px;
+}
+
+.download-btn i, .view-btn i {
+    font-size: 1.2rem;
+}
+
+.pdf-preview {
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
+}
+
+.pdf-info {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: var(--accent-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.pdf-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-right: 1rem;
+}
+
+.pdf-details h3 {
+    margin-bottom: 0.3rem;
+    color: var(--secondary-color);
+}
+
+.pdf-details p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.pdf-preview object {
+    width: 100%;
+    height: 600px;
+    display: block;
+}
+
+
+
+/* CTA Reservierung */
+.cta-reservation {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/restaurant-interior.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 5rem 0;
+    color: var(--light-text);
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.cta-content h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+}
+
+.cta-content p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-background);
+    color: var(--light-text);
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo h2::after {
+    display: none;
+}
+
+.footer-links h3, .footer-contact h3, .footer-social h3 {
+    font-size: 1.2rem;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links h3::after, .footer-contact h3::after, .footer-social h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-contact i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.legal-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.legal-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 12px;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--background-color);
+        width: 100%;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        padding: 2rem 0;
+        gap: 1.5rem;
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .menu-hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    .menu-hero p {
+        font-size: 1rem;
+    }
+    
+    .menu-categories, .recommendation-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pdf-menu {
+        padding: 2rem 1rem;
+    }
+    
+    .menu-download-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .download-btn, .view-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .pdf-preview {
+        margin-top: 1rem;
+    }
+    
+    .pdf-info {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .pdf-icon {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .pdf-preview object {
+        height: 400px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .legal-links {
+        justify-content: center;
+    }
+    
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cookie-buttons {
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 3rem 0;
+    }
+    
+    .container {
+        width: 95%;
+    }
+    
+    .menu-hero h2 {
+        font-size: 2rem;
+    }
+    
+    .pdf-preview object {
+        height: 300px;
+    }
+}

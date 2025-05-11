@@ -1,0 +1,161 @@
+/* Globale Stile */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f5f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header und Navigation */
+header {
+    background-color: #8B0000;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Hauptinhalt */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.impressum-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.impressum-container h1 {
+    color: #8B0000;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.impressum-content {
+    max-width: 800px;
+}
+
+.impressum-content h2 {
+    color: #8B0000;
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.3rem;
+}
+
+.impressum-content p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem 0 1rem;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 2rem;
+}
+
+.footer-info, .footer-links, .footer-hours {
+    margin-bottom: 1.5rem;
+}
+
+.footer-links a {
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffd700;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #444;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 0.5rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .impressum-container {
+        padding: 1.5rem;
+    }
+}

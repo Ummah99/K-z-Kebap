@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservierung - Köz Kebap Regensburg</title>
+    <link rel="stylesheet" href="reservierung.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header inkl. Navigation (kann später aus einer gemeinsamen Datei eingefügt werden) -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>Köz Kebap</h1>
+                <p>Türkisch & Aserbaidschanische Spezialitäten</p>
+            </div>
+            <div class="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Startseite</a></li>
+                <li><a href="Menü.html">Menü</a></li>
+                <li><a href="Reservierung.html">Reservierung</a></li>
+                <li><a href="Bewertungen.html">Bewertungen</a></li>
+                <li><a href="Kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="reservation-hero">
+        <div class="container">
+            <h1>Tisch reservieren</h1>
+            <p>Wir freuen uns auf Ihren Besuch in unserem Restaurant</p>
+        </div>
+    </section>
+
+    <!-- Reservierungsformular -->
+    <section class="reservation-form">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Reservierungsanfrage</h2>
+                    <p>Bitte füllen Sie das Formular aus, um einen Tisch zu reservieren. Sie erhalten eine Bestätigung per E-Mail.</p>
+                </div>
+                
+                <form id="reservationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name*</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Telefonnummer*</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Anzahl der Personen*</label>
+                            <select id="guests" name="guests" required>
+                                <option value="">Bitte wählen</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 Personen</option>
+                                <option value="3">3 Personen</option>
+                                <option value="4">4 Personen</option>
+                                <option value="5">5 Personen</option>
+                                <option value="6">6 Personen</option>
+                                <option value="7">7 Personen</option>
+                                <option value="8">8 Personen</option>
+                                <option value="more">Mehr als 8 Personen</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Datum*</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Uhrzeit*</label>
+                            <input type="time" id="time" name="time" min="17:00" max="22:00" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Besondere Wünsche</label>
+                        <textarea id="notes" name="notes" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group terms-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">Ich habe die <a href="Datenschutz.html">Datenschutzerklärung</a> gelesen und akzeptiere sie.*</label>
+                    </div>
+                    
+                    <div class="form-group terms-group">
+                        <input type="checkbox" id="cancelPolicy" name="cancelPolicy" required>
+                        <label for="cancelPolicy">Ich verstehe, dass Stornierungen spätestens einen Tag vor dem Reservierungstermin erfolgen müssen.*</label>
+                    </div>
+                    
+                    <div class="submission-container">
+                        <button type="submit" class="btn primary">Reservierung anfragen</button>
+                        <p class="required-text">* Pflichtfelder</p>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="reservation-info">
+                <div class="info-box">
+                    <h3>Öffnungszeiten</h3>
+                    <ul>
+                        <li><span>Dienstag - Freitag:</span> <span>17:00 - 23:00 Uhr</span></li>
+                        <li><span>Samstag - Sonntag:</span> <span>12:00 - 23:00 Uhr</span></li>
+                        <li><span>Montag:</span> <span>Geschlossen</span></li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h3>Hinweise zur Reservierung</h3>
+                    <p>Reservierungen können innerhalb unserer Öffnungszeiten vorgenommen werden. Für größere Gruppen (mehr als 8 Personen) kontaktieren Sie uns bitte telefonisch.</p>
+                    <p>Bei Verspätungen von mehr als 15 Minuten kann die Reservierung verfallen.</p>
+                    <p>Stornierungen müssen bis spätestens einen Tag vor dem Reservierungsdatum erfolgen.</p>
+                </div>
+                
+                <div class="info-box contact-box">
+                    <h3>Kontakt</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Hoher-Kreuz-Weg 36, 93055 Regensburg</p>
+                    <p><i class="fas fa-phone"></i> 0941792122</p>
+                    <p><i class="fas fa-envelope"></i> info@köz-kebap-regensburg.de</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bestätigungsmodal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <i class="fas fa-check-circle"></i>
+                <h3>Reservierung eingegangen</h3>
+            </div>
+            <div class="modal-body">
+                <p>Vielen Dank für Ihre Reservierungsanfrage! Wir haben eine Bestätigungsmail an Ihre E-Mail-Adresse geschickt.</p>
+                <p>Ihre Reservierungsdetails:</p>
+                <div id="reservationDetails">
+                    <!-- Hier werden die Reservierungsdetails per JavaScript eingefügt -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="closeModalBtn" class="btn primary">Schließen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Köz Kebap</h2>
+                    <p>Türkische und Aserbaidschanische Grillspezialitäten</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="Startseite.html">Startseite</a></li>
+                        <li><a href="Menü.html">Menü</a></li>
+                        <li><a href="Reservierung.html">Reservierung</a></li>
+                        <li><a href="Bewertungen.html">Bewertungen</a></li>
+                        <li><a href="Kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Kontakt</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Hoher-Kreuz-Weg 36, 93055 Regensburg</p>
+                    <p><i class="fas fa-phone"></i> 0941792122</p>
+                    <p><i class="fas fa-envelope"></i> info@köz-kebap-regensburg.de</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Folgen Sie uns</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Köz Kebap Regensburg. Alle Rechte vorbehalten.</p>
+                <div class="legal-links">
+                    <a href="impressum.html">Impressum</a>
+                    <a href="Datenschutz.html">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="reservation.js"></script>
+</body>
+</html>
