@@ -17,42 +17,64 @@ document.addEventListener('DOMContentLoaded', function() {
             guests: formData.get('guests'),
             date: formData.get('date'),
             time: formData.get('time'),
-            notes: formData.get('notes')
+            notes: formData.get('notes') || 'Keine'
         };
         
-        // Diese URL ist der Webhook, den du in n8n konfiguriert hast
-        fetch('http://localhost:5678/webhook-test/reservation', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(reservationData)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Netzwerkantwort war nicht ok');
+        // Telegram-Nachricht formatieren
+        const telegramMessage = `
+🍽️ *Neue Reservierung eingegangen!*
+
+📋 *Details:*
+Name: ${reservationData.name}
+Datum: ${formatDate(reservationData.date)}
+Zeit: ${reservationData.time} Uhr
+Personen: ${reservationData.guests}
+Telefon: ${reservationData.phone}
+E-Mail: ${reservationData.email}
+
+📝 *Anmerkungen:* ${reservationData.notes}
+        `;
+        
+        // Reservierungsdetails im Modal vorbereiten
+        reservationDetails.innerHTML = `
+            <p><strong>Name:</strong> ${reservationData.name}</p>
+            <p><strong>Datum:</strong> ${formatDate(reservationData.date)}</p>
+            <p><strong>Uhrzeit:</strong> ${reservationData.time} Uhr</p>
+            <p><strong>Personen:</strong> ${reservationData.guests}</p>
+        `;
+        
+        // Zeige das Modal sofort an
+        confirmationModal.style.display = 'block';
+        
+        // Formular zurücksetzen
+        reservationForm.reset();
+        
+        // Telegram-Nachricht im Hintergrund senden (ohne auf Antwort zu warten)
+        const script = document.createElement('script');
+        const callbackName = 'tgCallback_' + Math.floor(Math.random() * 1000000);
+        
+        // Callback definieren (wird aufgerufen, wenn Telegram antwortet)
+        window[callbackName] = function(response) {
+            // Erfolgreiche Telegram-Antwort
+            console.log('Telegram-Antwort erhalten:', response);
+            delete window[callbackName]; // Callback aufräumen
+            document.head.removeChild(script);
+        };
+
+        // Zeitüberschreitung für den Callback setzen
+        setTimeout(function() {
+            if (window[callbackName]) {
+                console.log('Telegram-Timeout - keine Antwort erhalten');
+                delete window[callbackName];
+                if (document.head.contains(script)) {
+                    document.head.removeChild(script);
+                }
             }
-            return response.json();
-        })
-        .then(data => {
-            // Reservierungsdetails im Modal anzeigen
-            reservationDetails.innerHTML = `
-                <p><strong>Name:</strong> ${reservationData.name}</p>
-                <p><strong>Datum:</strong> ${formatDate(reservationData.date)}</p>
-                <p><strong>Uhrzeit:</strong> ${reservationData.time} Uhr</p>
-                <p><strong>Personen:</strong> ${reservationData.guests}</p>
-            `;
-            
-            // Modal anzeigen
-            confirmationModal.style.display = 'block';
-            
-            // Formular zurücksetzen
-            reservationForm.reset();
-        })
-        .catch(error => {
-            alert('Es gab einen Fehler bei der Übermittlung Ihrer Reservierung. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns telefonisch.');
-            console.error('Fehler:', error);
-        });
+        }, 10000); // 10 Sekunden Timeout
+
+        // Telegram-Anfrage senden
+        script.src = `https://api.telegram.org/bot7350523052:AAFw8H0WNTpdqrqQk9fQXAM92U7mcNhdK5g/sendMessage?chat_id=7318873309&text=${encodeURIComponent(telegramMessage)}&parse_mode=Markdown&callback=${callbackName}`;
+        document.head.appendChild(script);
     });
 
     // Modal schließen Funktionalität
