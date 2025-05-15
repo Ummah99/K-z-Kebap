@@ -1,3 +1,9 @@
+// Fehlerbehandlung hinzufügen
+window.onerror = function(message, source, lineno, colno, error) {
+    console.error('JavaScript-Fehler:', message, 'in', source, 'Zeile:', lineno);
+    return true;
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     const reservationForm = document.getElementById('reservationForm');
     const confirmationModal = document.getElementById('confirmationModal');
