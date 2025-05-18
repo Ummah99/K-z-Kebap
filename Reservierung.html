@@ -6,6 +6,9 @@
     <title>Reservierung - Köz Kebap Regensburg</title>
     <link rel="stylesheet" href="reservierung.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+<!-- Mobile-spezifisches Stylesheet -->
+<link rel="stylesheet" href="index.mobile.css">
 </head>
 <body>
     <!-- Header inkl. Navigation (kann später aus einer gemeinsamen Datei eingefügt werden) -->
@@ -21,9 +24,9 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="active">Startseite</a></li>
+                <li><a href="index.html">Startseite</a></li>
                 <li><a href="Menü.html">Menü</a></li>
-                <li><a href="Reservierung.html">Reservierung</a></li>
+                <li><a href="Reservierung.html" class="active">Reservierung</a></li>
                 <li><a href="Bewertungen.html">Bewertungen</a></li>
                 <li><a href="Kontakt.html">Kontakt</a></li>
             </ul>
@@ -135,7 +138,7 @@
                     <h3>Kontakt</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Hoher-Kreuz-Weg 36, 93055 Regensburg</p>
                     <p><i class="fas fa-phone"></i> 0941792122</p>
-                    <p><i class="fas fa-envelope"></i> info@köz-kebap-regensburg.de</p>
+                    <p><i class="fas fa-envelope"></i> info@koez-kebap-regensburg.de</p>
                 </div>
             </div>
         </div>
@@ -173,7 +176,7 @@
                 <div class="footer-links">
                     <h3>Links</h3>
                     <ul>
-                        <li><a href="Startseite.html">Startseite</a></li>
+                        <li><a href="index.html">Startseite</a></li>
                         <li><a href="Menü.html">Menü</a></li>
                         <li><a href="Reservierung.html">Reservierung</a></li>
                         <li><a href="Bewertungen.html">Bewertungen</a></li>
@@ -184,7 +187,7 @@
                     <h3>Kontakt</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Hoher-Kreuz-Weg 36, 93055 Regensburg</p>
                     <p><i class="fas fa-phone"></i> 0941792122</p>
-                    <p><i class="fas fa-envelope"></i> info@köz-kebap-regensburg.de</p>
+                    <p><i class="fas fa-envelope"></i> info@koez-kebap-regensburg.de</p>
                 </div>
                 <div class="footer-social">
                     <h3>Folgen Sie uns</h3>
@@ -204,6 +207,30 @@
         </div>
     </footer>
 
-    <script src="/reservation.js"></script>
+    <script src="reservation.js"></script>
+    <script>
+        // Verbesserte Mobile Navigation
+        const mobileMenu = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                // Verhindere Scrollen des Hintergrunds wenn Menü offen
+                document.body.classList.toggle('menu-open');
+            });
+        }
+
+        // Schließe Menü wenn ein Link geklickt wird
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    </script>
 </body>
 </html>

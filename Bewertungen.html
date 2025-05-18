@@ -16,10 +16,10 @@
                 <p>Türkische & Aserbaidschan Spezialitäten</p>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="active">Startseite</a></li>
+                <li><a href="index.html">Startseite</a></li>
                 <li><a href="Menü.html">Menü</a></li>
                 <li><a href="Reservierung.html">Reservierung</a></li>
-                <li><a href="Bewertungen.html">Bewertungen</a></li>
+                <li><a href="Bewertungen.html" class="active">Bewertungen</a></li>
                 <li><a href="Kontakt.html">Kontakt</a></li>
             </ul>
             <div class="menu-toggle">
@@ -51,7 +51,7 @@
                 <div class="bewertung-abgeben">
                     <h3>Teilen Sie Ihre Erfahrung mit uns</h3>
                     <p>Waren Sie bei uns zu Gast? Wir freuen uns über Ihre Bewertung!</p>
-                    <a href="https://g.page/r/Ce9QlRbknSl3EBM/review" target="_blank" class="btn primary">Bewertung auf Google abgeben</a>
+                    <a href="https://www.google.com/maps/place/Köz+Kebap+Türkische+und+Aserbaidschan+Grill+Restaurant/@49.0108681,12.1314877,17z/data=!4m8!3m7!1s0x479fc3443d0383dd:0x68fc3bc552d6e4a4!8m2!3d49.0108681!4d12.1340626!9m1!1b1!16s%2Fg%2F11l77zxg84?hl=de&entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn primary">Bewertung auf Google abgeben</a>
                 </div>
             </div>
         </section>
@@ -67,7 +67,7 @@
                 <div class="footer-links">
                     <h3>Schnellzugriff</h3>
                     <ul class="nav-menu">
-                        <li><a href="index.html" class="active">Startseite</a></li>
+                        <li><a href="index.html">Startseite</a></li>
                         <li><a href="Menü.html">Menü</a></li>
                         <li><a href="Reservierung.html">Reservierung</a></li>
                         <li><a href="Bewertungen.html">Bewertungen</a></li>
@@ -84,7 +84,8 @@
                     <h3>Folgen Sie uns</h3>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/kozkebap_regensburg?igsh=NzhkZWg2bXR0bnM2"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@kozkebapregensburg?_t=ZN-8wPdFk1c9ZO&_r=1"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
             </div>
@@ -98,6 +99,29 @@
         </div>
     </footer>
     
-    <script src="main.js"></script>
+    <script>
+        // Verbesserte Mobile Navigation
+        const mobileMenu = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                // Verhindere Scrollen des Hintergrunds wenn Menü offen
+                document.body.classList.toggle('menu-open');
+            });
+        }
+
+        // Schließe Menü wenn ein Link geklickt wird
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    </script>
 </body>
 </html>

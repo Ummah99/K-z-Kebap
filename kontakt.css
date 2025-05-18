@@ -1,6 +1,236 @@
 /* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
 
+
+/* Mobile-optimiertes CSS für die Kontaktseite */
+@media (max-width: 768px) {
+    /* Allgemeine Anpassungen */
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 95%;
+        padding: 1rem 0;
+    }
+
+    section {
+        padding: 2rem 0;
+    }
+
+    /* Hero-Bereich */
+    .hero-section {
+        height: 30vh;
+        min-height: 200px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    /* Kontakt-Bereich */
+    .kontakt-section {
+        padding: 2.5rem 0;
+    }
+
+    .kontakt-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .kontakt-section > .container > p {
+        padding: 0 1rem;
+    }
+
+    /* Kontaktinformationen */
+    .kontakt-info-full {
+        padding: 0 0.5rem;
+    }
+
+    .info-box {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Telefonbereich hervorheben */
+    .phone-number {
+        font-size: 1.3rem;
+    }
+
+    /* Kontakt-Elemente */
+    .info-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .info-item i {
+        font-size: 1.8rem;
+        margin: 0 auto 0.5rem;
+    }
+
+    /* Öffnungszeiten */
+    .opening-hours li {
+        flex-direction: column;
+        text-align: center;
+        padding: 0.8rem 0.5rem;
+    }
+
+    .opening-hours li span {
+        margin-bottom: 0.3rem;
+        font-weight: 600;
+    }
+
+    /* Social Media Icons */
+    .social-media {
+        padding: 0 1rem;
+    }
+
+    .social-icons {
+        flex-wrap: wrap;
+    }
+
+    /* Karte */
+    .map-section {
+        padding-top: 1rem;
+    }
+
+    .map-container {
+        margin-top: 2rem;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    .navbar {
+        padding: 1rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.98);
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-toggle {
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        z-index: 1001;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: var(--secondary-color);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: rgba(255, 255, 255, 0.98);
+        padding: 2rem 0;
+        transition: all 0.3s ease-in-out;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu.active li {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.2s;
+    }
+
+    .nav-menu a {
+        padding: 1rem 2rem;
+        width: 100%;
+        display: block;
+        font-size: 1.1rem;
+        color: var(--secondary-color);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a:focus {
+        background-color: rgba(230, 57, 70, 0.1);
+        padding-left: 2.5rem;
+    }
+
+    .nav-menu a.active {
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Noch kleinere Geräte */
+    .hero-section {
+        height: 25vh;
+        min-height: 180px;
+    }
+
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .info-box {
+        padding: 1.2rem;
+    }
+}
+
+
 /* Kontakt Styles */
 :root {
     --primary-color: #e63946;

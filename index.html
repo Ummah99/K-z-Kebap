@@ -6,6 +6,8 @@
     <title>Köz Kebap Regensburg - Türkische & Aserbaidschanische Grillspezialitäten</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Mobile-spezifisches Stylesheet -->
+    <link rel="stylesheet" href="index.mobile.css">
     <meta name="description" content="Köz Kebap Regensburg - Authentische türkische und aserbaidschanische Grillspezialitäten in Regensburg. Besuchen Sie unser Restaurant am Hoher-Kreuz-Weg 36.">
 </head>
 <body>
@@ -192,8 +194,8 @@
                     <h3>Folgen Sie uns</h3>
                     <div class="social-icons">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+                        <a href="https://www.instagram.com/kozkebap_regensburg?igsh=NzhkZWg2bXR0bnM2" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@kozkebapregensburg?_t=ZN-8wPdFk1c9ZO&_r=1" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
             </div>
@@ -208,10 +210,27 @@
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        document.getElementById('mobile-menu').addEventListener('click', function() {
-            document.querySelector('.nav-menu').classList.toggle('active');
-            this.classList.toggle('active');
+        // Verbesserte Mobile Navigation
+        const mobileMenu = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                // Verhindere Scrollen des Hintergrunds wenn Menü offen
+                document.body.classList.toggle('menu-open');
+            });
+        }
+
+        // Schließe Menü wenn ein Link geklickt wird
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
         });
 
         // Cookie Banner

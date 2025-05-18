@@ -812,32 +812,56 @@ footer {
     
     .nav-menu {
         position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: var(--background-color);
+        top: 60px;
+        right: -100%;
         width: 100%;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
+        height: calc(100vh - 60px);
+        background-color: rgba(255, 255, 255, 0.98);
         padding: 2rem 0;
-        gap: 1.5rem;
-        z-index: 999;
+        transition: all 0.3s ease-in-out;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        z-index: 1000;
     }
     
     .nav-menu.active {
-        left: 0;
+        right: 0;
     }
     
-    .menu-toggle.active .bar:nth-child(2) {
+    .nav-menu li {
+        width: 100%;
         opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.3s ease-in-out;
     }
     
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+    .nav-menu.active li {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.2s;
     }
     
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+    .nav-menu a {
+        padding: 1rem 2rem;
+        width: 100%;
+        display: block;
+        font-size: 1.1rem;
+        color: var(--secondary-color);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a:focus {
+        background-color: rgba(230, 57, 70, 0.1);
+        padding-left: 2.5rem;
+    }
+    
+    .nav-menu a.active {
+        color: var(--primary-color);
+        font-weight: 600;
     }
     
     .hero h2 {
