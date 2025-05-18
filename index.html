@@ -15,6 +15,7 @@
         <p>Diese Website verwendet Cookies, um Ihr Browsererlebnis zu verbessern.</p>
         <div class="cookie-buttons">
             <button id="accept-cookies">Akzeptieren</button>
+            <button id="decline-cookies">Ablehnen</button>
             <a href="Datenschutz.html">Mehr Informationen</a>
         </div>
     </div>
@@ -209,6 +210,7 @@
         </div>
     </footer>
 
+    <script src="cookies.js"></script>
     <script>
         // Verbesserte Mobile Navigation
         const mobileMenu = document.querySelector('.menu-toggle');
@@ -232,18 +234,6 @@
                 document.body.classList.remove('menu-open');
             });
         });
-
-        // Cookie Banner
-        document.getElementById('accept-cookies').addEventListener('click', function() {
-            document.getElementById('cookie-banner').style.display = 'none';
-            // Set cookie
-            document.cookie = "cookies_accepted=true; max-age=" + 60*60*24*365 + "; path=/";
-        });
-
-        // Check if cookies already accepted
-        if (document.cookie.indexOf('cookies_accepted=true') > -1) {
-            document.getElementById('cookie-banner').style.display = 'none';
-        }
     </script>
 </body>
 </html>

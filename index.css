@@ -134,42 +134,91 @@ section {
     color: var(--light-text);
 }
 
-/* Cookie Banner */
+/* Cookie Banner Styles - für alle Seiten */
 .cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--dark-background);
-    color: var(--light-text);
-    padding: 1rem;
-    z-index: 1000;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    max-width: 400px;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.cookie-banner p {
+    margin: 0 0 15px 0;
 }
 
 .cookie-buttons {
     display: flex;
-    gap: 1rem;
-}
-
-.cookie-buttons button, .cookie-buttons a {
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-    cursor: pointer;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .cookie-buttons button {
-    background-color: var(--primary-color);
-    color: var(--light-text);
+    padding: 8px 15px;
     border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+#accept-cookies {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#accept-cookies:hover {
+    background-color: #c94e00;
+}
+
+#decline-cookies {
+    background-color: #444;
+    color: white;
+}
+
+#decline-cookies:hover {
+    background-color: #666;
 }
 
 .cookie-buttons a {
-    color: var(--light-text);
+    color: #fff;
     text-decoration: underline;
+    font-size: 0.85rem;
+    margin-left: auto;
+    align-self: center;
+}
+
+.cookie-buttons a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Styles für das Cookie-Banner */
+@media (max-width: 500px) {
+    .cookie-banner {
+        left: 10px;
+        right: 10px;
+        max-width: calc(100% - 20px);
+        font-size: 0.85rem;
+    }
+    
+    .cookie-buttons {
+        flex-direction: column;
+    }
+    
+    .cookie-buttons a {
+        margin-left: 0;
+        margin-top: 10px;
+        text-align: center;
+    }
 }
 
 /* Header & Navigation */

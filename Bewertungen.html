@@ -7,13 +7,29 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="bewertungen.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Mobile-spezifisches Stylesheet -->
+    <link rel="stylesheet" href="index.mobile.css">
 </head>
 <body>
+    <div class="cookie-banner" id="cookie-banner">
+        <p>Diese Website verwendet Cookies, um Ihr Browsererlebnis zu verbessern.</p>
+        <div class="cookie-buttons">
+            <button id="accept-cookies">Akzeptieren</button>
+            <button id="decline-cookies">Ablehnen</button>
+            <a href="Datenschutz.html">Mehr Informationen</a>
+        </div>
+    </div>
+
     <header>
         <nav class="navbar">
             <div class="logo">
-                <h1>Köz Kebap</h1>
-                <p>Türkische & Aserbaidschan Spezialitäten</p>
+                <h1>KÖZ KEBAP</h1>
+                <p>Türkische & Aserbaidschanische Grillspezialitäten</p>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Startseite</a></li>
@@ -22,11 +38,6 @@
                 <li><a href="Bewertungen.html" class="active">Bewertungen</a></li>
                 <li><a href="Kontakt.html">Kontakt</a></li>
             </ul>
-            <div class="menu-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
         </nav>
     </header>
 
@@ -61,16 +72,15 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h2>Köz Kebap</h2>
-                    <p>Türkische & Aserbaidschan Spezialitäten</p>
+                    <h2>KÖZ KEBAP</h2>
+                    <p>Türkische & Aserbaidschanische Grillspezialitäten</p>
                 </div>
                 <div class="footer-links">
-                    <h3>Schnellzugriff</h3>
-                    <ul class="nav-menu">
+                    <h3>Links</h3>
+                    <ul>
                         <li><a href="index.html">Startseite</a></li>
                         <li><a href="Menü.html">Menü</a></li>
                         <li><a href="Reservierung.html">Reservierung</a></li>
-                        <li><a href="Bewertungen.html">Bewertungen</a></li>
                         <li><a href="Kontakt.html">Kontakt</a></li>
                     </ul>
                 </div>
@@ -78,7 +88,6 @@
                     <h3>Kontakt</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Hoher-Kreuz-Weg 36, 93055 Regensburg</p>
                     <p><i class="fas fa-phone"></i> 0941792122</p>
-                    <p><i class="fas fa-clock"></i> Di-Fr: 17-23 Uhr, Sa-So: 12-23 Uhr</p>
                 </div>
                 <div class="footer-social">
                     <h3>Folgen Sie uns</h3>
@@ -99,6 +108,7 @@
         </div>
     </footer>
     
+    <script src="cookies.js"></script>
     <script>
         // Verbesserte Mobile Navigation
         const mobileMenu = document.querySelector('.menu-toggle');
